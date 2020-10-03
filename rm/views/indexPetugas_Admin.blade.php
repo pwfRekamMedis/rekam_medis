@@ -32,6 +32,7 @@
 			<td>
 				|
 				<a href="/petugas_admin/edit/{{ $pa->id_petugas}}">Edit</a>
+				<a href="/petugas_admin/hapus/{{ $pa->id_petugas }}">Hapus</a>
 				|
 			</td>
 		</tr>
