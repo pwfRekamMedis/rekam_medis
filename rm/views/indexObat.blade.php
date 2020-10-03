@@ -34,6 +34,7 @@
 			<td>
 				|
 				<a href="/obat/edit/{{ $o->id_obat}}">Edit</a>
+				<a href="/obat/hapus/{{ $o->id_obat }}">Hapus</a>
 				|
 			</td>
 		</tr>
