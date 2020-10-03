@@ -14,7 +14,7 @@
 	<br/>
  
 	<form action="/obat/store" method="post">
-		{{ csrf_field() }}
+	{{ csrf_field() }}
 		Id <input type="text" name="id_obat" required="required"> <br/>
 		Kategori <input type="text" name="kategori_obat" required="required"> <br/>
 		Nama <input type="text" name="nama_obat" required="required"> <br/>
