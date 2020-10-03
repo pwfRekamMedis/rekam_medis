@@ -38,6 +38,7 @@
 			<td>
 				|
 				<a href="/pasien/edit/{{ $p->id_pasien}}">Edit</a>
+				<a href="/pasien/hapus/{{ $p->id_pasien }}">Hapus</a>
 				|
 			</td>
 		</tr>
