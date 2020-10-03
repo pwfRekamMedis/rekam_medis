@@ -34,6 +34,7 @@
 			<td>
 				|
 				<a href="/dokter/edit/{{ $d->id_dokter}}">Edit</a>
+				<a href="/dokter/hapus/{{ $d->id_dokter }}">Hapus</a>
 				|
 			</td>
 		</tr>
