@@ -5,58 +5,67 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class DokterController extends Controller
+class Resep_ObatController extends Controller
 {
-	public function indexDokter()
+	public function indexResep_Obat()
     {
-    	// mengambil data dari table dokter
-    	$dokter = DB::table('dokter')->get();
+    	// mengambil data dari table resep_obat
+    	$resep_obat = DB::table('resep_obat')->get();
  
-    	// mengirim data dokter ke view index
-    	return view('indexDokter',['dokter' => $dokter]);
+    	// mengirim data resep_obat ke view index
+    	return view('indexResep_Obat',['resep_obat' => $resep_obat]);
  
-    }
-    //
-	public function tambahDokter()
+	}
+	
+	public function tambahResep_Obat()
 	{
- 
+		$obat = DB::table('obat')->get();
+		$rekam_medis = DB::table('rekam_medis')->get();
 		// memanggil view tambah
-		return view('tambahDokter');
+		return view('tambahResep_Obat',['obat' => $obat,'rekam_medis' => $rekam_medis]);
 	}
 	
 	// method untuk insert data ke table
-	public function storeDokter(Request $request)
+	public function storeResep_Obat(Request $request)
 {
 	// insert data ke table
-	DB::table('dokter')->insert([
-		'id_dokter' => $request->id_dokter,
-		'nama_dokter' => $request->nama_dokter,
-		'alamat' => $request->alamat,
-		'kota_tinggal' => $request->kota_tinggal,
-		'no_tlp' => $request->no_tlp,
-		'spesialis' => $request->spesialis
+	DB::table('resep_obat')->insert([
+		'id_resep' => $request->id_resep,
+		'id_obat' => $request->id_obat,
+		'id_rekam_medis' => $request->id_rekam_medis,
+		'jumlah' => $request->jumlah,
 	]);
 	// alihkan halaman ke halaman
-	return redirect('/dokter');
+	return redirect('/resep_obat');
  
 }
-	public function editDokter($id_dokter)
+	public function editResep_Obat($id_resep)
 {
-	$dokter = DB::table('dokter')->where('id_dokter',$id_dokter)->get();
-	// passing data pegawai yang didapat ke view edit.blade.php
-	return view('editDokter',['dokter' => $dokter]);
+	$resep_obat = DB::table('resep_obat')->where('id_resep',$id_resep)->get();
+	$obat = DB::table('obat')->get();
+	$rekam_medis = DB::table('rekam_medis')->get();
+	// passing data resep_obat yang didapat ke view edit.blade.php
+	return view('editResep_Obat',['resep_obat' => $resep_obat,'obat' => $obat,'rekam_medis' => $rekam_medis]);
 }
-	public function updateDokter(Request $request)
+	public function updateResep_Obat(Request $request)
 {
 	// update data
-	DB::table('dokter')->where('id_dokter',$request->id_dokter)->update([
-		'id_dokter' => $request->id_dokter,
-		'nama_dokter' => $request->nama_dokter,
-		'alamat' => $request->alamat,
-		'kota_tinggal' => $request->kota_tinggal,
-		'no_tlp' => $request->no_tlp,
-		'spesialis' => $request->spesialis
+	DB::table('resep_obat')->where('id_resep',$request->id_resep)->update([
+		'id_resep' => $request->id_resep,
+		'id_obat' => $request->id_obat,
+		'id_rekam_medis' => $request->id_rekam_medis,
+		'jumlah' => $request->jumlah,
 	]);
-	return redirect('/dokter');
+	return redirect('/resep_obat');
+	}
+	// method untuk hapus data resep_obat
+	public function hapus($id_resep)
+	{
+		// menghapus data resep obat berdasarkan id yang dipilih
+		DB::table('resep_obat')->where('id_resep',$id_resep)->delete();
+		
+		// alihkan halaman ke halaman rekam medis
+		return redirect('/resep_obat');
+	}
 }
-}
+
