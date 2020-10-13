@@ -27,46 +27,48 @@
     <div class="content mt-3">
 
         <div class="animated fadeIn">
-		<h3>Data Rekam Medis</h3>
- 
-		<a href="/rekam_medis/tambah"> + Tambah Data Rekam Medis</a>
-		
-		<br/>
-		<br/>
-
-		<table border="1">
-			<tr>
-				<th>Id Rekam Medis</th>
-				<th>Id Pasien</th>
-				<th>Id Petugas</th>
-				<th>Id Dokter</th>
-				<th>Tgl Periksa</th>
-				<th>Diagnosa</th>
-				<th>Keterangan</th>
-				<th>Biaya Jasa</th>
-				<th>Opsi</th>
-			</tr>
-			@foreach($rekam_medis as $rm)
-			<tr>
-				<td>{{ $rm->id_rekam_medis }}</td>
-				<td>{{ $rm->id_pasien }}</td>
-				<td>{{ $rm->id_petugas }}</td>
-				<td>{{ $rm->id_dokter }}</td>
-				<td>{{ $rm->tgl_periksa }}</td>
-				<td>{{ $rm->diagnosa }}</td>
-				<td>{{ $rm->keterangan }}</td>
-				<td>{{ $rm->biaya_jasa }}</td>
-				<td>
-					|
-					<a href="/rekam_medis/edit/{{ $rm->id_rekam_medis}}">Edit</a>
-					|
-				</td>
-			</tr>
-			@endforeach
-		</table>
-		<br/>
-		<a href="/">Kembali</a>
-        </div>
-
+		<div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Rekam Medis</strong>
+                        </div>
+						<div>
+							<a href="/obat/tambah"> + Tambah Data Rekam Medis</a>
+						</div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+				  <thead>
+						<tr>
+							<th>Id Rekam Medis</th>
+							<th>Id Pasien</th>
+							<th>Id Petugas</th>
+							<th>Id Dokter</th>
+							<th>Tgl Periksa</th>
+							<th>Diagnosa</th>
+							<th>Keterangan</th>
+							<th>Biaya Jasa</th>
+							<th>Opsi</th>
+						</tr>
+				  </thead>
+				  <tbody>
+						@foreach($rekam_medis as $rm)
+						<tr>
+							<td>{{ $rm->id_rekam_medis }}</td>
+							<td>{{ $rm->id_pasien }}</td>
+							<td>{{ $rm->id_petugas }}</td>
+							<td>{{ $rm->id_dokter }}</td>
+							<td>{{ $rm->tgl_periksa }}</td>
+							<td>{{ $rm->diagnosa }}</td>
+							<td>{{ $rm->keterangan }}</td>
+							<td>{{ $rm->biaya_jasa }}</td>
+							<td>
+								<a href="/rekam_medis/edit/{{ $rm->id_rekam_medis}}">Edit</a>
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+					</table>
+					</div>
+       	</div>
     </div>
 @endsection
