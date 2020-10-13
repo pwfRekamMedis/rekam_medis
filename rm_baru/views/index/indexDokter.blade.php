@@ -27,41 +27,48 @@
     <div class="content mt-3">
 
         <div class="animated fadeIn">
-		<h3>Data Dokter</h3>
- 
-		<a href="/dokter/tambah"> + Tambah Dokter Baru</a>
-	
-		<br/>
-		<br/>
-	
-		<table border="1">
-			<tr>
-				<th>Id</th>
-				<th>Nama</th>
-				<th>Alamat</th>
-				<th>Kota</th>
-				<th>NoTelp</th>
-				<th>Spesialis</th>
-				<th>Opsi</th>
-			</tr>
-			@foreach($dokter as $d)
-			<tr>
-				<td>{{ $d->id_dokter }}</td>
-				<td>{{ $d->nama_dokter }}</td>
-				<td>{{ $d->alamat }}</td>
-				<td>{{ $d->kota_tinggal }}</td>
-				<td>{{ $d->no_tlp }}</td>
-				<td>{{ $d->spesialis }}</td>
-				<td>
-					|
-					<a href="/dokter/edit/{{ $d->id_dokter}}">Edit</a>
-					|
-				</td>
-			</tr>
-			@endforeach
-		</table>
-		<br/>
-        </div>
+		<div class="row">
 
-    </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Dokter</strong>
+                        </div>
+						<div>
+							<a href="/obat/tambah"> + Tambah Data Dokter</a>
+						</div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+				  <thead>
+					<tr>
+						<th>Id</th>
+						<th>Nama</th>
+						<th>Alamat</th>
+						<th>Kota</th>
+						<th>NoTelp</th>
+						<th>Spesialis</th>
+						<th>Opsi</th>
+					</tr>
+				  </thead>
+				  <tbody>
+						@foreach($dokter as $d)
+						<tr>
+							<td>{{ $d->id_dokter }}</td>
+							<td>{{ $d->nama_dokter }}</td>
+							<td>{{ $d->alamat }}</td>
+							<td>{{ $d->kota_tinggal }}</td>
+							<td>{{ $d->no_tlp }}</td>
+							<td>{{ $d->spesialis }}</td>
+							<td>
+								|
+								<a href="/dokter/edit/{{ $d->id_dokter}}">Edit</a>
+								|
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+				  </table>
+						</div>
+        			</div>
+    			</div>
 @endsection
