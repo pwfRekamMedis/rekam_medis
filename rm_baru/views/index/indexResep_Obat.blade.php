@@ -27,38 +27,42 @@
     <div class="content mt-3">
 
         <div class="animated fadeIn">
-		<h3>Data Resep Obat</h3>
- 
-		<a href="/resep_obat/tambah"> + Tambah Data Resep Obat</a>
-		
-		<br/>
-		<br/>
-
-		<table border="1">
-			<tr>
-				<th>Id Resep Obat</th>
-				<th>Id Obat</th>
-				<th>Id Rekam Medis</th>
-				<th>Jumlah</th>
-				<th>Opsi</th>
-			</tr>
-			@foreach($resep_obat as $ro)
-			<tr>
-				<td>{{ $ro->id_resep }}</td>
-				<td>{{ $ro->id_obat }}</td>
-				<td>{{ $ro->id_rekam_medis }}</td>
-				<td>{{ $ro->jumlah }}</td>
-				<td>
-					|
-					<a href="/resep_obat/edit/{{ $ro->id_resep}}">Edit</a>
-					|
-				</td>
-			</tr>
-			@endforeach
-		</table>
-		<br/>
-		<a href="/">Kembali</a>
+		<div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Resep Obat</strong>
+                        </div>
+						<div>
+							<a href="/obat/tambah"> + Tambah Data Resep Obat</a>
+						</div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+				  <thead>
+						<tr>
+							<th>Id Resep Obat</th>
+							<th>Id Obat</th>
+							<th>Id Rekam Medis</th>
+							<th>Jumlah</th>
+							<th>Opsi</th>
+						</tr>
+					<thead>
+					<tbody>
+						@foreach($resep_obat as $ro)
+						<tr>
+							<td>{{ $ro->id_resep }}</td>
+							<td>{{ $ro->id_obat }}</td>
+							<td>{{ $ro->id_rekam_medis }}</td>
+							<td>{{ $ro->jumlah }}</td>
+							<td>
+								|
+								<a href="/resep_obat/edit/{{ $ro->id_resep}}">Edit</a>
+								|
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+					</table>
+				</div>
         </div>
-
     </div>
 @endsection
