@@ -27,44 +27,50 @@
     <div class="content mt-3">
 
         <div class="animated fadeIn">
-		<h3>DataPasien</h3>
- 
-		<a href="/pasien/tambah"> + Tambah Pasien Baru</a>
-		
-		<br/>
-		<br/>
-
-		<table border="1">
-			<tr>
-				<th>Id</th>
-				<th>Nama</th>
-				<th>Tgl Lahir</th>
-				<th>Tempat Lahir</th>
-				<th>Alamat</th>
-				<th>Kota</th>
-				<th>NoTelp</th>
-				<th>Pekerjaan</th>
-				<th>Opsi</th>
-			</tr>
-			@foreach($pasien as $p)
-			<tr>
-				<td>{{ $p->id_pasien }}</td>
-				<td>{{ $p->nama_pasien }}</td>
-				<td>{{ $p->tgl_lahir }}</td>
-				<td>{{ $p->tempat_lahir }}</td>
-				<td>{{ $p->alamat }}</td>
-				<td>{{ $p->kota_tinggal }}</td>
-				<td>{{ $p->no_tlp }}</td>
-				<td>{{ $p->pekerjaan }}</td>
-				<td>
-					|
-					<a href="/pasien/edit/{{ $p->id_pasien}}">Edit</a>
-					|
-				</td>
-			</tr>
-			@endforeach
-		</table>
-		<br/>
+		<div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Pasien</strong>
+                        </div>
+						<div>
+							<a href="/obat/tambah"> + Tambah Data Pasien</a>
+						</div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+				  <thead>
+					<tr>
+						<th>Id</th>
+						<th>Nama</th>
+						<th>Tgl Lahir</th>
+						<th>Tempat Lahir</th>
+						<th>Alamat</th>
+						<th>Kota</th>
+						<th>NoTelp</th>
+						<th>Pekerjaan</th>
+						<th>Opsi</th>
+					</tr>
+				  <thead>
+				  <tbody>
+						@foreach($pasien as $p)
+						<tr>
+							<td>{{ $p->id_pasien }}</td>
+							<td>{{ $p->nama_pasien }}</td>
+							<td>{{ $p->tgl_lahir }}</td>
+							<td>{{ $p->tempat_lahir }}</td>
+							<td>{{ $p->alamat }}</td>
+							<td>{{ $p->kota_tinggal }}</td>
+							<td>{{ $p->no_tlp }}</td>
+							<td>{{ $p->pekerjaan }}</td>
+							<td>
+								|
+								<a href="/pasien/edit/{{ $p->id_pasien}}">Edit</a>
+								|
+							</td>
+						</tr>
+						@endforeach
+				  </tbody>
+			</table>
+			</div>
         </div>
 
     </div>
