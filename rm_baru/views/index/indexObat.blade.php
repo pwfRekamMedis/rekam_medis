@@ -27,40 +27,46 @@
     <div class="content mt-3">
 
         <div class="animated fadeIn">
-			<h3>Data Obat</h3>
-	
-			<a href="/obat/tambah"> + Tambah Obat Baru</a>
-	
-			<br/>
-			<br/>
-
-			<table border="1">
-				<tr>
-					<th>Id</th>
-					<th>Kategori</th>
-					<th>Nama</th>
-					<th>Bentuk</th>
-					<th>Tgl Kadaluarsa</th>
-					<th>Harga Obat</th>
-					<th>Opsi</th>
-				</tr>
-				@foreach($obat as $o)
-				<tr>
-					<td>{{ $o->id_obat }}</td>
-					<td>{{ $o->kategori_obat }}</td>
-					<td>{{ $o->nama_obat }}</td>
-					<td>{{ $o->bentuk_obat }}</td>
-					<td>{{ $o->tgl_kadaluarsa }}</td>
-					<td>{{ $o->harga_obat }}</td>
-					<td>
-						|
-						<a href="/obat/edit/{{ $o->id_obat}}">Edit</a>
-						|
-					</td>
-				</tr>
-				@endforeach
-			</table>
-			<br/>
+		<div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Obat</strong>
+                        </div>
+						<div>
+							<a href="/obat/tambah"> + Tambah Data Obat</a>
+						</div>
+                        <div class="card-body">
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+				  <thead>
+					<tr>
+						<th>Id</th>
+						<th>Kategori</th>
+						<th>Nama</th>
+						<th>Bentuk</th>
+						<th>Tgl Kadaluarsa</th>
+						<th>Harga Obat</th>
+						<th>Opsi</th>
+					</tr>
+				  </thead>
+				  <tbody>
+						@foreach($obat as $o)
+						<tr>
+							<td>{{ $o->id_obat }}</td>
+							<td>{{ $o->kategori_obat }}</td>
+							<td>{{ $o->nama_obat }}</td>
+							<td>{{ $o->bentuk_obat }}</td>
+							<td>{{ $o->tgl_kadaluarsa }}</td>
+							<td>{{ $o->harga_obat }}</td>
+							<td>
+								|
+								<a href="/obat/edit/{{ $o->id_obat}}">Edit</a>
+								|
+							</td>
+						</tr>
+						@endforeach
+				  </tbody>
+				  </table>
+			</div>
         </div>
 
     </div>
