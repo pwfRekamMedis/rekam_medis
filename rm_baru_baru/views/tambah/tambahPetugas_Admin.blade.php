@@ -33,7 +33,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Tambah Data Peugas</strong>
+                            <strong class="card-title">Tambah Data Petugas</strong>
                         </div>
 						<div>
 						<br>
