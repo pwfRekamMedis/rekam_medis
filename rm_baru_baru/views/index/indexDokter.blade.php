@@ -34,8 +34,10 @@
                         <div class="card-header">
                             <strong class="card-title">Data Dokter</strong>
                         </div>
+						<br>
 						<div>
-							<a href="/dokter/tambah"> + Tambah Data Dokter</a>
+							<a href="/dokter/tambah" button type="button" class="btn btn-success btn-sm"> 
+							<i class="fa fa-plus-square"></i>&nbsp; Tambah Data Dokter</button></a>
 						</div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -60,9 +62,8 @@
 							<td>{{ $d->no_tlp }}</td>
 							<td>{{ $d->spesialis }}</td>
 							<td>
-								|
-								<a href="/dokter/edit/{{ $d->id_dokter}}">Edit</a>
-								|
+								<a href="/dokter/edit/{{ $d->id_dokter}}" class="btn btn-primary btn-sm">Edit</a>
+								
 							</td>
 						</tr>
 						@endforeach
