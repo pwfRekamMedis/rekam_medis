@@ -32,8 +32,10 @@
                         <div class="card-header">
                             <strong class="card-title">Data Petugas</strong>
                         </div>
+						<br>
 						<div>
-							<a href="/petugas_admin/tambah"> + Tambah Data Petugas</a>
+							<a href="/petugas_admin/tambah" button type="button" class="btn btn-success btn-sm"> 
+							<i class="fa fa-plus-square"></i>&nbsp; Tambah Data Petugas</button></a>
 						</div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -56,9 +58,7 @@
 							<td>{{ $pa->kota_tinggal }}</td>
 							<td>{{ $pa->no_tlp }}</td>
 							<td>
-								|
-								<a href="/petugas_admin/edit/{{ $pa->id_petugas}}">Edit</a>
-								|
+								<a href="/petugas_admin/edit/{{ $pa->id_petugas}}" class="btn btn-primary btn-sm">Edit</a>
 							</td>
 						</tr>
 						@endforeach
