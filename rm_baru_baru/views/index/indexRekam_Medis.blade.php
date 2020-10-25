@@ -32,8 +32,10 @@
                         <div class="card-header">
                             <strong class="card-title">Data Rekam Medis</strong>
                         </div>
+						<br>
 						<div>
-							<a href="/rekam_medis/tambah"> + Tambah Data Rekam Medis</a>
+							<a href="/rekam_medis/tambah" button type="button" class="btn btn-success btn-sm"> 
+							<i class="fa fa-plus-square"></i>&nbsp; Tambah Data Rekam Medis</button></a>
 						</div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -62,7 +64,7 @@
 							<td>{{ $rm->keterangan }}</td>
 							<td>{{ $rm->biaya_jasa }}</td>
 							<td>
-								<a href="/rekam_medis/edit/{{ $rm->id_rekam_medis}}">Edit</a>
+								<a href="/rekam_medis/edit/{{ $rm->id_rekam_medis}}" class="btn btn-primary btn-sm">Edit</a>
 							</td>
 						</tr>
 						@endforeach
