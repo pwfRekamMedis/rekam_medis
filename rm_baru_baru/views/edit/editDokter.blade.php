@@ -41,18 +41,18 @@
 						<br>
 						</div>
 						<div class="card-body">
-						@foreach($dokter as $d)
+						
 						<form action="/dokter/update" method="post">
 						{{ csrf_field() }}
-							<input type="hidden" name="id_dokter" value="{{ $d->id_dokter }}"> <br/>
-							Nama <br><input type="text" required="required" name="nama_dokter" value="{{ $d->nama_dokter }}"> <br/>
-							Alamat <br><input type="text" name="alamat" value="{{ $d->alamat }}"> <br/>
-							Kota <br><input type="text" name="kota_tinggal" value="{{ $d->kota_tinggal }}"> <br/>
-							NoTelp <br><input type="text" required="required" name="no_tlp" value="{{ $d->no_tlp }}"> <br/>
-							Spesialis <br><input type="text" required="required" name="spesialis" value="{{ $d->spesialis }}"> <br/>
+							<input type="hidden" name="id_dokter" value="{{ $dokter->id_dokter }}"> <br/>
+							Nama <br><input type="text" name="nama_dokter" required="required" value="{{ $dokter->nama_dokter }}"> <br/>
+							Alamat <br><input type="text" name="alamat" value="{{ $dokter->alamat }}"> <br/>
+							Kota <br><input type="text" name="kota_tinggal" value="{{ $dokter->kota_tinggal }}"> <br/>
+							NoTelp <br><input type="text" name="no_tlp" required="required" value="{{ $dokter->no_tlp }}"> <br/>
+							Spesialis <br><input type="text" name="spesialis" required="required" value="{{ $dokter->spesialis }}"> <br/>
 							<br><input type="submit" value="Simpan Data">
 						</form>
-						@endforeach
+						
 						</div>
         			</div>
     			</div>
