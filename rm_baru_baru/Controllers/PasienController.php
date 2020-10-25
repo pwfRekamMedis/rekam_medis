@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\pasien;
 
 class PasienController extends Controller
 {
 	public function indexPasien()
     {
+		/*
     	// mengambil data dari table dokter
     	$pasien = DB::table('pasien')->get();
  
     	// mengirim data dokter ke view index
-    	return view('index/indexPasien',['pasien' => $pasien]);
+		return view('index/indexPasien',['pasien' => $pasien]);
+		*/
+		// mengambil data Pasien
+    	$pasien = pasien::all();
+ 
+    	// mengirim data pasien ke view pasien
+		return view('index/indexPasien',['pasien' => $pasien]);
  
     }
     //
@@ -28,7 +36,8 @@ class PasienController extends Controller
 	public function storePasien(Request $request)
 {
 	// insert data ke table
-	DB::table('pasien')->insert([
+	//DB::table('pasien')->insert([
+		pasien::create([
 		//'id_pasien' => $request->id_pasien,
 		'nama_pasien' => $request->nama_pasien,
 		'tgl_lahir' => $request->tgl_lahir,
@@ -44,13 +53,15 @@ class PasienController extends Controller
 }
 	public function editPasien($id_pasien)
 {
-	$pasien = DB::table('pasien')->where('id_pasien',$id_pasien)->get();
+	//$pasien = DB::table('pasien')->where('id_pasien',$id_pasien)->get();
+	$pasien = pasien::find($id_pasien);
 	// passing data pegawai yang didapat ke view edit.blade.php
 	return view('edit/editPasien',['pasien' => $pasien]);
 }
 	public function updatePasien(Request $request)
 {
 	// update data
+	/*
 	DB::table('pasien')->where('id_pasien',$request->id_pasien)->update([
 		//'id_pasien' => $request->id_pasien,
 		'nama_pasien' => $request->nama_pasien,
@@ -61,6 +72,25 @@ class PasienController extends Controller
 		'no_tlp' => $request->no_tlp,
 		'pekerjaan' => $request->pekerjaan
 	]);
+	*/
+	$this->validate($request,[
+		'nama_pasien' => 'required',
+		'tgl_lahir' => 'required',
+		'tempat_lahir' => 'required',
+		'alamat' => 'required',
+		'kota_tinggal' => 'required',
+		'no_tlp' => 'required',
+		'pekerjaan' => 'required'
+	 ]);
+	$pasien = pasien::find($request->id_pasien);
+    $pasien->nama_pasien = $request->nama_pasien;
+	$pasien->tgl_lahir = $request->tgl_lahir;
+	$pasien->tempat_lahir = $request->tempat_lahir;
+	$pasien->alamat = $request->alamat;
+	$pasien->kota_tinggal = $request->kota_tinggal;
+	$pasien->no_tlp = $request->no_tlp;
+	$pasien->pekerjaan = $request->pekerjaan;
+	$pasien->save();
 	return redirect('/pasien');
 }
 	// method untuk hapus data pasien
