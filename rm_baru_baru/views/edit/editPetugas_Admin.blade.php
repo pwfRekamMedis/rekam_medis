@@ -41,17 +41,17 @@
 						<br>
 						</div>
 						<div class="card-body">
-						@foreach($petugas_admin as $pa)
+						
 						<form action="/petugas_admin/update" method="post">
 						{{ csrf_field() }}
-							<input type="hidden" name="id_petugas" value="{{ $pa->id_petugas }}"> <br/>
-							Nama <br><input type="text" required="required" name="nama_petugas" value="{{ $pa->nama_petugas }}"> <br/>
-							Alamat <br><input type="text" name="alamat" value="{{ $pa->alamat }}"> <br/>
-							Kota <br><input type="text" name="kota_tinggal" value="{{ $pa->kota_tinggal }}"> <br/>
-							NoTelp <br><input type="text" required="required" name="no_tlp" value="{{ $pa->no_tlp }}"> <br/>
+							<input type="hidden" name="id_petugas" value="{{ $petugas_admin->id_petugas }}"> <br/>
+							Nama <br><input type="text" required="required" name="nama_petugas" value="{{ $petugas_admin->nama_petugas }}"> <br/>
+							Alamat <br><input type="text" name="alamat" value="{{ $petugas_admin->alamat }}"> <br/>
+							Kota <br><input type="text" name="kota_tinggal" value="{{ $petugas_admin->kota_tinggal }}"> <br/>
+							NoTelp <br><input type="text" required="required" name="no_tlp" value="{{ $petugas_admin->no_tlp }}"> <br/>
 							<br><input type="submit" value="Simpan Data">
 						</form>
-						@endforeach
+						
 						</div>
         			</div>
     			</div>
