@@ -41,20 +41,20 @@
 						<br>
 						</div>
 						<div class="card-body">
-						@foreach($pasien as $p)
+						
 						<form action="/pasien/update" method="post">
 						{{ csrf_field() }}
-							<input type="hidden" name="id_pasien" value="{{ $p->id_pasien }}"> <br/>
-							Nama <br><input type="text" required="required" name="nama_pasien" value="{{ $p->nama_pasien }}"> <br/>
-							Tgl Lahir <br><input type="date" name="tgl_lahir" value="{{ $p->tgl_lahir }}"> <br/>
-							Tempat Lahir <br><input type="text" name="tempat_lahir" value="{{ $p->tempat_lahir }}"> <br/>
-							Alamat <br><input type="text" name="alamat" value="{{ $p->alamat }}"> <br/>
-							Kota <br><input type="text" name="kota_tinggal" value="{{ $p->kota_tinggal }}"> <br/>
-							NoTelp <br><input type="text" required="required" name="no_tlp" value="{{ $p->no_tlp }}"> <br/>
-							Pekerjaan <br><input type="text" name="pekerjaan" value="{{ $p->pekerjaan }}"> <br/>
+							<input type="hidden" name="id_pasien" value="{{ $pasien->id_pasien }}"> <br/>
+							Nama <br><input type="text" required="required" name="nama_pasien" value="{{ $pasien->nama_pasien }}"> <br/>
+							Tgl Lahir <br><input type="date" name="tgl_lahir" value="{{ $pasien->tgl_lahir }}"> <br/>
+							Tempat Lahir <br><input type="text" name="tempat_lahir" value="{{ $pasien->tempat_lahir }}"> <br/>
+							Alamat <br><input type="text" name="alamat" value="{{ $pasien->alamat }}"> <br/>
+							Kota <br><input type="text" name="kota_tinggal" value="{{ $pasien->kota_tinggal }}"> <br/>
+							NoTelp <br><input type="text" required="required" name="no_tlp" value="{{ $pasien->no_tlp }}"> <br/>
+							Pekerjaan <br><input type="text" name="pekerjaan" value="{{ $pasien->pekerjaan }}"> <br/>
 							<br><input type="submit" value="Simpan Data">
 						</form>
-						@endforeach
+						
 						</div>
         			</div>
     			</div>
