@@ -41,18 +41,18 @@
 						<br>
 						</div>
 						<div class="card-body">
-						@foreach($obat as $o)
+						
 						<form action="/obat/update" method="post">
 						{{ csrf_field() }}
-							<input type="hidden" name="id_obat" value="{{ $o->id_obat }}"> <br/>
-							Kategori <br><input type="text" required="required" name="kategori_obat" value="{{ $o->kategori_obat }}"> <br/>
-							Nama <br><input type="text" name="nama_obat" value="{{ $o->nama_obat }}"> <br/>
-							Bentuk <br><input type="text" name="bentuk_obat" value="{{ $o->bentuk_obat }}"> <br/>
-							Tgl Kadaluarsa <br><input type="date" required="required" name="tgl_kadaluarsa" value="{{ $o->tgl_kadaluarsa }}"> <br/>
-							Harga Obat <br><input type="number" name="harga_obat" value="{{ $o->harga_obat }}"> <br/>
+							<input type="hidden" name="id_obat" value="{{ $obat->id_obat }}"> <br/>
+							Kategori <br><input type="text" required="required" name="kategori_obat" value="{{ $obat->kategori_obat }}"> <br/>
+							Nama <br><input type="text" name="nama_obat" value="{{ $obat->nama_obat }}"> <br/>
+							Bentuk <br><input type="text" name="bentuk_obat" value="{{ $obat->bentuk_obat }}"> <br/>
+							Tgl Kadaluarsa <br><input type="date" required="required" name="tgl_kadaluarsa" value="{{ $obat->tgl_kadaluarsa }}"> <br/>
+							Harga Obat <br><input type="number" name="harga_obat" value="{{ $obat->harga_obat }}"> <br/>
 							<br><input type="submit" value="Simpan Data">
 						</form>
-						@endforeach
+						
 						</div>
         			</div>
     			</div>
