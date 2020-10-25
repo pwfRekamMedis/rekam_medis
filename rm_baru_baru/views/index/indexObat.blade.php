@@ -32,8 +32,10 @@
                         <div class="card-header">
                             <strong class="card-title">Data Obat</strong>
                         </div>
+						<br>
 						<div>
-							<a href="/obat/tambah"> + Tambah Data Obat</a>
+							<a href="/obat/tambah" button type="button" class="btn btn-success btn-sm"> 
+							<i class="fa fa-plus-square"></i>&nbsp; Tambah Data Obat</button></a>
 						</div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -58,9 +60,7 @@
 							<td>{{ $o->tgl_kadaluarsa }}</td>
 							<td>{{ $o->harga_obat }}</td>
 							<td>
-								|
-								<a href="/obat/edit/{{ $o->id_obat}}">Edit</a>
-								|
+								<a href="/obat/edit/{{ $o->id_obat}}" class="btn btn-primary btn-sm">Edit</a>
 							</td>
 						</tr>
 						@endforeach
