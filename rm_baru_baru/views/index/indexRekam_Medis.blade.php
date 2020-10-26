@@ -42,9 +42,9 @@
 				  <thead>
 						<tr>
 							<th>Id Rekam Medis</th>
-							<th>Id Pasien</th>
-							<th>Id Petugas</th>
-							<th>Id Dokter</th>
+							<th>Nama Pasien</th>
+							<th>Nama Petugas</th>
+							<th>Nama Dokter</th>
 							<th>Tgl Periksa</th>
 							<th>Diagnosa</th>
 							<th>Keterangan</th>
@@ -56,9 +56,9 @@
 						@foreach($rekam_medis as $rm)
 						<tr>
 							<td>{{ $rm->id_rekam_medis }}</td>
-							<td>{{ $rm->id_pasien }}</td>
-							<td>{{ $rm->id_petugas }}</td>
-							<td>{{ $rm->id_dokter }}</td>
+							<td>{{ $rm->pasien->nama_pasien }}</td>
+							<td>{{ $rm->petugas_admin->nama_petugas }}</td>
+							<td>{{ $rm->dokter->nama_dokter }}</td>
 							<td>{{ $rm->tgl_periksa }}</td>
 							<td>{{ $rm->diagnosa }}</td>
 							<td>{{ $rm->keterangan }}</td>
