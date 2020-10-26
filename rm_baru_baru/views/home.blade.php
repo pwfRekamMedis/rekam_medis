@@ -27,7 +27,7 @@
     <div class="content mt-3">
 
         <div class="animated fadeIn">
-                <h1>Welcome to Medical Center</h1>
+                <h1 align=center>Welcome to Medical Center</h1>
         </div>
 
     </div>
