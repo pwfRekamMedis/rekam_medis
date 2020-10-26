@@ -40,25 +40,25 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                    <a href="/"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                    <a href="/"> <i class="menu-icon fa fa-home"></i>Home </a>
                     </li>
                     <li>
-                    <a href="/dokter"> <i class="menu-icon fa fa-puzzle-piece"></i>Dokter </a>
+                    <a href="/dokter"> <i class="menu-icon fa fa-stethoscope"></i>Dokter </a>
                     </li>
                     <li>
-                    <a href="/obat"> <i class="menu-icon fa fa-puzzle-piece"></i>Obat </a>
+                    <a href="/obat"> <i class="menu-icon fa fa-medkit"></i>Obat </a>
                     </li>
                     <li>
-                    <a href="/pasien"> <i class="menu-icon fa fa-puzzle-piece"></i>Pasien </a>
+                    <a href="/pasien"> <i class="menu-icon fa fa-wheelchair"></i>Pasien </a>
                     </li>
                     <li>
-                    <a href="/petugas_admin"> <i class="menu-icon fa fa-puzzle-piece"></i>Petugas </a>
+                    <a href="/petugas_admin"> <i class="menu-icon fa fa-user-md"></i>Petugas </a>
                     </li>
                     <li>
-                    <a href="/rekam_medis"> <i class="menu-icon fa fa-puzzle-piece"></i>Rekam Medis </a>
+                    <a href="/rekam_medis"> <i class="menu-icon fa fa-hospital-o"></i>Rekam Medis </a>
                     </li>
                     <li>
-                    <a href="/resep_obat"> <i class="menu-icon fa fa-puzzle-piece"></i>Resep Obat </a>
+                    <a href="/resep_obat"> <i class="menu-icon fa fa-flask"></i>Resep Obat </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
