@@ -4,16 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\resep_obat;
+use App\obat;
+use App\rekam_medis;
 
 class Resep_ObatController extends Controller
 {
 	public function indexResep_Obat()
     {
+		/*
     	// mengambil data dari table resep_obat
     	$resep_obat = DB::table('resep_obat')->get();
  
     	// mengirim data resep_obat ke view index
-    	return view('index/indexResep_Obat',['resep_obat' => $resep_obat]);
+		return view('index/indexResep_Obat',['resep_obat' => $resep_obat]);
+		*/
+
+		// mengambil data resep obat
+		$rekam_medis = rekam_medis::all();
+		$obat = obat::all();
+		$resep_obat = resep_obat::all();
+		
+    	// mengirim data ke view resep obat
+		return view('index/indexResep_Obat',compact('resep_obat'),compact('obat'),compact('rekam_medis'));
  
 	}
 	
