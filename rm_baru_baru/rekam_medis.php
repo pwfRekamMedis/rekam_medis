@@ -19,4 +19,8 @@ class rekam_medis extends Model
     public function dokter(){
         return $this->belongsTo(dokter::class,'id_dokter');
     }
+
+    public function resep_obat(){
+        return $this->hasMany(rekam_medis::class,'id_rekam_medis');
+    }
 }
