@@ -37,7 +37,7 @@
                         </div>
 						<div>
 						<br>
-							<a href="/obat">>   Kembali</a>
+                        <a href="/obat"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i>&nbsp;Kembali</button></a>
 						<br>
 						</div>
                         <div class="card-body">
