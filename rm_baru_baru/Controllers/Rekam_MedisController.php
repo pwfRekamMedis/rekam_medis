@@ -13,37 +13,32 @@ class Rekam_MedisController extends Controller
 {
 	public function indexRekam_Medis()
     {
-		
+		/*
     	// mengambil data dari table rekam_medis
     	$rekam_medis = DB::table('rekam_medis')->get();
  
     	// mengirim data rekam_medis ke view index
 		return view('index/indexRekam_Medis',['rekam_medis' => $rekam_medis]);
-		/*
-		// mengambil data rekam medis
-		pasien::all();
-		petugas_admin::all();
-		dokter::all();
-		$rekam_medis = rekam_medis::all();
 		*/
+
+		// mengambil data rekam medis
+		$pasien = pasien::all();
+		$petugas_admin = petugas_admin::all();
+		$dokter = dokter::all();
+		$rekam_medis = rekam_medis::all();
+		
  
     	// mengirim data ke view rekam medis
-		return view('index/indexRekam_Medis',['rekam_medis' => $rekam_medis]);
+		return view('index/indexRekam_Medis',compact('rekam_medis'),compact('pasien'),compact('petugas_admin'),compact('dokter'));
  
 	}
 	
 	public function tambahRekam_Medis()
 	{
 		// memanggil view tambah
-		
 		$pasien = DB::table('pasien')->get();
 		$petugas_admin = DB::table('petugas_admin')->get();
 		$dokter = DB::table('dokter')->get();
-		/*
-		$pasien = pasien::all();
-		$petugas_admin = petugas_admin::all();
-		$dokter = dokter::all();
-		*/
 		return view('tambah/tambahRekam_Medis',['pasien' => $pasien,'petugas_admin' => $petugas_admin,'dokter' => $dokter]);
 	}
 	
@@ -52,7 +47,6 @@ class Rekam_MedisController extends Controller
 {
 	// insert data ke table
 	DB::table('rekam_medis')->insert([
-		//rekam_medis::create([
 		//'id_rekam_medis' => $request->id_rekam_medis,
 		'id_pasien' => $request->id_pasien,
 		'id_petugas' => $request->id_petugas,
