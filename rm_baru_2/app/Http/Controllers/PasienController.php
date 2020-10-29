@@ -8,20 +8,34 @@ use App\pasien;
 
 class PasienController extends Controller
 {
-	public function indexPasien()
+	public function indexPasien(Request $request)
     {
 		/*
-    	// mengambil data dari table dokter
+    	// mengambil data dari table pasien
     	$pasien = DB::table('pasien')->get();
  
-    	// mengirim data dokter ke view index
+    	// mengirim data pasien ke view index
 		return view('index/indexPasien',['pasien' => $pasien]);
 		*/
 		// mengambil data Pasien
-    	$pasien = pasien::all();
+    	if($request -> has('cari')){
+			$pasien = pasien::where('id_pasien','LIKE','%'.$request->cari.'%')
+			->orwhere('nama_pasien','LIKE','%'.$request->cari.'%')
+			->orwhere('tempat_lahir','LIKE','%'.$request->cari.'%')
+			->orwhere('kota_tinggal','LIKE','%'.$request->cari.'%')
+			->orwhere('alamat','LIKE','%'.$request->cari.'%')
+			->orwhere('pekerjaan','LIKE','%'.$request->cari.'%')->get();
+		}else{
+			$pasien = pasien::all();
+		}
+		
+		$data = array(
+			'menu' => 'pasien',
+			'submenu' => ''
+		);
  
     	// mengirim data pasien ke view pasien
-		return view('index/indexPasien',['pasien' => $pasien]);
+		return view('index/indexPasien',['pasien' => $pasien],$data);
  
     }
     //
