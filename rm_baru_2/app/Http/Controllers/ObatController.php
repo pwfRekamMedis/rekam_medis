@@ -8,7 +8,7 @@ use App\obat;
 
 class ObatController extends Controller
 {
-	public function indexObat()
+	public function indexObat(Request $request)
     {
 		/*
     	// mengambil data dari table
@@ -19,10 +19,22 @@ class ObatController extends Controller
 		*/
 		
 		// mengambil data obat
-    	$obat = obat::all();
+    	if($request -> has('cari')){
+			$obat = obat::where('id_obat','LIKE','%'.$request->cari.'%')
+			->orwhere('kategori_obat','LIKE','%'.$request->cari.'%')
+			->orwhere('nama_obat','LIKE','%'.$request->cari.'%')
+			->orwhere('bentuk_obat','LIKE','%'.$request->cari.'%')->get();
+		}else{
+			$obat = obat::all();
+		}
+		
+		$data = array(
+			'menu' => 'obat',
+			'submenu' => ''
+		);
  
     	// mengirim data obat ke view obat
-		return view('index/indexObat',['obat' => $obat]);
+		return view('index/indexObat',['obat' => $obat],$data);
 		
  
     }
