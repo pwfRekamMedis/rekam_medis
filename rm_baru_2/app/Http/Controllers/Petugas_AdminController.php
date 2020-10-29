@@ -8,7 +8,7 @@ use App\petugas_admin;
 
 class Petugas_AdminController extends Controller
 {
-	public function indexPetugas_Admin()
+	public function indexPetugas_Admin(Request $request)
     {
 		/*
     	// mengambil data dari table petugas admin
@@ -18,7 +18,20 @@ class Petugas_AdminController extends Controller
 		return view('index/indexPetugas_Admin',['petugas_admin' => $petugas_admin]);
 		*/
 		// mengambil data petugas admin
-    	$petugas_admin = petugas_admin::all();
+    	if($request -> has('cari')){
+			$petugas_admin = petugas_admin::where('id_petugas','LIKE','%'.$request->cari.'%')
+			->orwhere('nama_petugas','LIKE','%'.$request->cari.'%')
+			->orwhere('alamat','LIKE','%'.$request->cari.'%')
+			->orwhere('kota_tinggal','LIKE','%'.$request->cari.'%')
+			->orwhere('no_tlp','LIKE','%'.$request->cari.'%')->get();
+		}else{
+			$petugas_admin = petugas_admin::all();
+		}
+		
+		$data = array(
+			'menu' => 'petugas_admin',
+			'submenu' => ''
+		);
  
     	// mengirim data ke view petugas
 		return view('index/indexPetugas_Admin',['petugas_admin' => $petugas_admin]);
