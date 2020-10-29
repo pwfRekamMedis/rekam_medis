@@ -38,6 +38,14 @@
 						<div>
 							<a href="/dokter/tambah" button type="button" class="btn btn-success btn-sm"> 
 							<i class="fa fa-plus-square"></i>&nbsp; Tambah Data Dokter</button></a>
+
+                        	<div class="search-container">
+                            <form method="GET" action="/dokter">
+                                <input type="text" name="cari" placeholder="Search ..." name="Search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+
+                        </div>
 						</div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
