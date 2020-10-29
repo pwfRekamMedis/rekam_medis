@@ -11,7 +11,7 @@ use App\dokter;
 
 class Rekam_MedisController extends Controller
 {
-	public function indexRekam_Medis()
+	public function indexRekam_Medis(Request $request)
     {
 		/*
     	// mengambil data dari table rekam_medis
@@ -22,18 +22,36 @@ class Rekam_MedisController extends Controller
 		*/
 
 		// mengambil data rekam medis
-		$pasien = pasien::all();
-		$petugas_admin = petugas_admin::all();
-		$dokter = dokter::all();
-		$rekam_medis = rekam_medis::all();
-		
- 
+		if($request -> has('cari')){
+			$pasien = pasien::where('nama_pasien','LIKE','%'.$request->cari.'%');
+			$petugas_admin = petugas_admin::where('nama_petugas','LIKE','%'.$request->cari.'%');
+			$dokter = dokter::where('nama_petugas','LIKE','%'.$request->cari.'%');
+			$rekam_medis = rekam_medis::where('id_rekam_medis','LIKE','%'.$request->cari.'%')
+			->orwhere('id_pasien','LIKE','%'.$request->cari.'%')
+			->orwhere('id_petugas','LIKE','%'.$request->cari.'%')
+			->orwhere('id_dokter','LIKE','%'.$request->cari.'%')
+			->orwhere('tgl_periksa','LIKE','%'.$request->cari.'%')
+			->orwhere('diagnosa','LIKE','%'.$request->cari.'%')
+			->orwhere('biaya_jasa','LIKE','%'.$request->cari.'%')
+			->get();
+		}else{
+			$pasien = pasien::all();
+			$petugas_admin = petugas_admin::all();
+			$dokter = dokter::all();
+			$rekam_medis = rekam_medis::all();
+		}
+		/*
+		$data = array(
+			'menu' => 'dokter',
+			'submenu' => ''
+		);
+		*/
     	// mengirim data ke view rekam medis
 		return view('index/indexRekam_Medis',compact('rekam_medis'),compact('pasien'),compact('petugas_admin'),compact('dokter'));
  
 	}
 	
-	public function indexRekam_MedisHistori()
+	public function indexRekam_MedisHistori(Request $request)
     {
 		/*
     	// mengambil data dari table rekam_medis
