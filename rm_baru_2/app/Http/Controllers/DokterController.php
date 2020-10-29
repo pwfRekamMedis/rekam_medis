@@ -8,7 +8,7 @@ use App\dokter;
 
 class DokterController extends Controller
 {
-	public function indexDokter()
+	public function indexDokter(Request $request)
     {
 		/*
     	// mengambil data dari table dokter
@@ -19,10 +19,24 @@ class DokterController extends Controller
 		*/
 		
 		// mengambil data dokter
-    	$dokter = dokter::all();
+		if($request -> has('cari')){
+			$dokter = dokter::where('id_dokter','LIKE','%'.$request->cari.'%')
+			->orwhere('nama_dokter','LIKE','%'.$request->cari.'%')
+			->orwhere('alamat','LIKE','%'.$request->cari.'%')
+			->orwhere('kota_tinggal','LIKE','%'.$request->cari.'%')
+			->orwhere('no_tlp','LIKE','%'.$request->cari.'%')
+			->orwhere('spesialis','LIKE','%'.$request->cari.'%')->get();
+		}else{
+			$dokter = dokter::all();
+		}
+		
+		$data = array(
+			'menu' => 'dokter',
+			'submenu' => ''
+		);
  
     	// mengirim data dokter ke view dokter
-		return view('index/indexDokter',['dokter' => $dokter]);
+		return view('index/indexDokter',['dokter' => $dokter],$data);
 		
  
     }
