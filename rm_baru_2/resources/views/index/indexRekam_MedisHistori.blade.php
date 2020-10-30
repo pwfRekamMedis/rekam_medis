@@ -1,4 +1,4 @@
-@extends('main')
+@extends('pasien')
 
 @section('title', '-')
 
@@ -30,12 +30,16 @@
 		<div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Data Rekam Medis</strong>
+                            <strong class="card-title">Histori Rekam Medis</strong>
                         </div>
 						<br>
 						<div>
-							<a href="/rekam_medis/pasien" button type="button" class="btn btn-success btn-sm"> 
-							<i class="fa fa-square"></i>&nbsp; Lihat per Pasien</button></a>
+							<div class="search-container">
+							<form method="GET" action="/rekam_medis/histori">
+                                <input type="text" name="cari" placeholder="Input Id Pasien Anda ..." name="Search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+							</div>
 						</div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">

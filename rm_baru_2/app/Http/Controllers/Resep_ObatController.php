@@ -10,7 +10,7 @@ use App\rekam_medis;
 
 class Resep_ObatController extends Controller
 {
-	public function indexResep_Obat()
+	public function indexResep_Obat(Request $request)
     {
 		/*
     	// mengambil data dari table resep_obat
@@ -21,10 +21,18 @@ class Resep_ObatController extends Controller
 		*/
 
 		// mengambil data resep obat
-		$rekam_medis = rekam_medis::all();
-		$obat = obat::all();
-		$resep_obat = resep_obat::all();
+		if($request -> has('cari')){
+			$rekam_medis = rekam_medis::all();
+			$obat = obat::all();
+			$resep_obat = resep_obat::where('id_resep','LIKE','%'.$request->cari.'%')
+			->orwhere('jumlah','LIKE','%'.$request->cari.'%')
+			->get();
 		
+		}else{
+			$rekam_medis = rekam_medis::all();
+			$obat = obat::all();
+			$resep_obat = resep_obat::all();
+		}
     	// mengirim data ke view resep obat
 		return view('index/indexResep_Obat',compact('resep_obat'),compact('obat'),compact('rekam_medis'));
  

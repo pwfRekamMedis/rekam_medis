@@ -36,13 +36,15 @@
 						<div>
 							<a href="/rekam_medis/tambah" button type="button" class="btn btn-success btn-sm"> 
 							<i class="fa fa-plus-square"></i>&nbsp; Tambah Data Rekam Medis</button></a>
-
+							
+							<a href="/rekam_medis/pasien" button type="button" class="btn btn-success btn-sm"> 
+							<i class="fa fa-square"></i>&nbsp; Lihat per Pasien</button></a>
 							<div class="search-container">
                             <form method="GET" action="/rekam_medis">
                                 <input type="text" name="cari" placeholder="Search ..." name="Search">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
-
+							</div>
 						</div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
