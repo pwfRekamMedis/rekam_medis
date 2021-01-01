@@ -28,6 +28,7 @@
 
         <div class="animated fadeIn">
                 <h3 align=center>Welcome to Medical Center, <strong>{{ Auth::user()->name }}</strong></h3>
+                <img src="{{ asset('style/images/wall1.jpeg') }}">
         </div>
 
     </div>
